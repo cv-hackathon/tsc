@@ -25,7 +25,7 @@ function BasicInfo({ participantId, info }) {
 
   return (
     <Stack sx={{ minWidth: 275 }} spacing={2}>
-      <Stack direction="row" justifyContent={'space-between'} alignItems={'center'} sx={{display: 'flex', position: 'relative', top: '-50px'} }>
+      <Stack direction="row" justifyContent={'space-between'} alignItems={'center'} sx={{display: 'flex', position: 'relative', top: '-20px'} }>
         <Stack direction={"row"} alignItems={'center'} sx={{display: 'flex'}} spacing={2}>
           <Typography variant="h4" component="div">
             {info.lastname} {info.firstname}
