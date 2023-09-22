@@ -7,6 +7,7 @@ import AddOrganizationPopup from './AddOrganizationPopup'
 import ServiceDetailsPopup from './ServiceDetailsPopup';
 import UploadPopup from './UploadPopup/UploadPopup';
 import ExportPopup from './ExportPopup/ExportPopup';
+import Alert from './Alert'
 
 function App({ store }) {
   return (
@@ -19,6 +20,7 @@ function App({ store }) {
             <ServiceDetailsPopup />
             <UploadPopup />
             <ExportPopup />
+            <Alert />
           </div>
         </Provider>
       </BrowserRouter>
