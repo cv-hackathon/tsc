@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack'
 
 import getServiceCategoryIcon from './getServiceCategoryIcon'
 
-const icons = getServiceCategoryIcon({sx: {height: 25, width: 25}})
+const icons = getServiceCategoryIcon({sx: {height: 30, width: 30}})
 const opts = [
   {label: icons.cabin, value: {field: 'serviceCategory', value: 'cabin'}, key: 'cabin', title: 'Living in Village'},
   {label: icons.care, value: {field: 'serviceCategory', value: 'care'}, key: 'care', title: 'In Coordinated Care'},

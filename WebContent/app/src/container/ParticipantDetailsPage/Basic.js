@@ -13,6 +13,13 @@ const StyledChip = styled(Chip)(({ theme, color }) => ({
   }
 }));
 
+const status_colors = {
+  'Open': 'primary',
+  'In Progress': 'warning',
+  'Completed': 'success',
+  'Failed': 'error'
+}
+
 function BasicInfo({ participantId, info }) {
   const dispatch = useDispatch()
 
@@ -28,9 +35,14 @@ function BasicInfo({ participantId, info }) {
               <StyledChip key={idx} label={tag.trim()} size="small" color={['primary', 'warning', 'success'][idx % 3]} sx={{ fontWeight: 'bold' }} variant="outlined" />)}
           </Stack>
         </Stack>
-        <Button variant="contained" size="small" color="primary" sx={{ height: '30px' }} onClick={() => {
-          dispatch({ type: 'add_participant_show', isEditingMode: true, info })
-        }}>Book Service</Button>
+        <Stack direction={'row'} spacing={2}>
+          <Button variant="contained" size="small" color="primary" sx={{ height: '30px'}} onClick={() => {
+            dispatch({ type: 'add_participant_show', isEditingMode: true, info, defaultActiveStep: 2 })
+          }}>Edit</Button>
+          <Button variant="contained" size="small" color="primary" sx={{ height: '30px' }} onClick={() => {
+            dispatch({ type: 'add_participant_show', isEditingMode: true, info, defaultActiveStep: 1 })
+          }}>Book Service</Button>
+        </Stack>
       </Stack>
 
       <Grid container spacing={4} sx={{padding: '0 !important'}}>
@@ -44,13 +56,16 @@ function BasicInfo({ participantId, info }) {
           <TextField label="Phone" variant="outlined" value={info.phone} InputProps={{ readOnly: true }} />
         </Grid>
         <Grid item xs={6} sm={2}>
-          <TextField label="Bank Account" variant="outlined" value={info.backCardOpen || 'N'} InputProps={{readOnly: true}}  />
+          <TextField label="Bank Account" variant="outlined" value={info.bankCardOpen} InputProps={{readOnly: true}}  />
         </Grid>
-        <Grid item xs={6} sm={3}>
-          <TextField label="Email" variant="outlined" value={info.email} InputProps={{readOnly: true}}  />
+        <Grid item xs={6} sm={4}>
+          <TextField label="Email" variant="outlined" fullWidth value={info.email} InputProps={{readOnly: true}}  />
         </Grid>
         <Grid item xs={6} sm={2} sx={{ paddingLeft: '0 !important' }}>
-          <TextField label="Status" variant="outlined" value={info.exit === 'Y' ? 'Fail' : info.status} InputProps={{ readOnly: true }} required />
+          <TextField label="Status" variant="outlined" color={'primary'} value={info.status} InputProps={{ readOnly: true }} required />
+        </Grid>
+        <Grid item xs={6} sm={2}>
+          <TextField label="Cabin #" variant="outlined" value={info.cabin} InputProps={{ readOnly: true }} />
         </Grid>
         {info.exit === 'Y' && (
           <Grid item xs={6} sm={4}>
@@ -58,7 +73,7 @@ function BasicInfo({ participantId, info }) {
           </Grid>
         )}
         <Grid item xs={6} sm={4}>
-          <TextField label="Needs / Goal" fullWidth variant="outlined" value={info.needs} InputProps={{readOnly: true}}  />
+          <TextField label="Needs / Goals" fullWidth variant="outlined" value={info.needs} InputProps={{readOnly: true}}  />
         </Grid>
       </Grid> 
     </Stack>

@@ -14,7 +14,7 @@ const categrayIcons = getServiceCategoryIcon({sx: {height: 15, width: 15, margin
 const partiStatus = {
   'In Progress': <Typography component="div" sx={{color: 'warning.main'}} fontSize={'small'}>In Progress</Typography>,
   'Completed': <Typography component="div" sx={{color: 'success.main'}} fontSize={'small'}>Completed</Typography>,
-  'Exit': <Typography component="div" sx={{color: 'error.main'}} fontSize={'small'}>Exit</Typography>,
+  'Exited': <Typography component="div" sx={{color: 'error.main'}} fontSize={'small'}>Exited</Typography>,
   Open: <Typography component="div" sx={{color: 'primary.main'}} fontSize={'small'}>Open</Typography>,
 }
 
@@ -46,7 +46,7 @@ const getColumns = (navigate, dispatch, navigators) => [
   },
   {
     field: 'exitReason',
-    headerName: 'Reason',
+    headerName: 'Exit Reason',
     flexGrow: 1,
   },
   {
@@ -56,11 +56,6 @@ const getColumns = (navigate, dispatch, navigators) => [
     valueGetter: (params) => {
       return (navigators[params.row.navigatorId] || {}).name
     },
-  },
-  {
-    field: 'bankCardOpen',
-    headerName: 'Bank Account',
-    width: 150,
   },
   {
     field: 'services',
@@ -97,7 +92,7 @@ const getColumns = (navigate, dispatch, navigators) => [
   {
     field: 'caseWorker',
     headerName: 'Case Worker',
-    width: 150,
+    width: 100,
     renderCell: (params) => {
       return <Stack direction="column">{params.row.services.map((s, idx) => {
         return (

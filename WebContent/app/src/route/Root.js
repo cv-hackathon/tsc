@@ -32,6 +32,7 @@ const Root = () => {
             <Route path="/home" render={() => !validateUser() ? <Redirect to="/:login"></Redirect> : <HomePage />} />
             <Route exact path="/:login" component={Login} />
             <Route exact path="/" render={() => validateUser() ? <Redirect to="/home"></Redirect> : <Redirect to="/:login"></Redirect>} />
+            <Route render={() => validateUser() ? <Redirect to="/home"></Redirect> : <Redirect to="/:login"></Redirect>} />
         </Switch>
     )
 }

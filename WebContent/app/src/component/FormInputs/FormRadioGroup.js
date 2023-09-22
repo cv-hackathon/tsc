@@ -6,15 +6,14 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-
-export default function FormRadioGroup({label, control, name, options, row = true, onExitChanged}) {
+export default function FormRadioGroup({label, control, name, options, row = true, onValueChanged}) {
   return (
     <Controller
       name={name}
       control={control}
       render={({ field: { onChange, value } }) => {
-        if (label === 'Exit' && onExitChanged) {
-          onExitChanged(value)
+        if (onValueChanged) {
+          onValueChanged(value)
         }
 
         return (

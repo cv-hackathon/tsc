@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import dayjs from 'dayjs'
 import {useForm} from "react-hook-form";
@@ -13,13 +13,15 @@ import Box from '@mui/material/Box';
 import StepperPanel from './StepperPanel'
 import ParticipantBaseInfo from './ParticipantBaseInfo'
 import ServicesInfo from './ServicesInfo'
-import Review from './Review'
+import FinalStep from './FinalStep'
 import ResultPanel from './ResultPanel'
 
 import {dayFormat} from '../../utils/constants'
 import doFetch from '../../utils/doFetch'
 
 const steps = ['Participant Base Info', 'Plan Services']
+const extra_steps = ['Participant Base Info', 'Plan Services', 'Addition Actions']
+
 const buttonSx = {mt: 3, ml: 1}
 // const defaultInputs = {
 //   firstname: '',
@@ -37,41 +39,51 @@ const buttonSx = {mt: 3, ml: 1}
 
 const popupState = state => ({...state.addParticipant, ...state.globalInfo})
 
-function getStepContent(step, control, title, navigators, organizations, getValues) {
+function getStepContent(step, control, title, navigators, organizations, getValues, isEditingMode) {
   switch (step) {
     case 0:
       return <ParticipantBaseInfo control={control} title={title} navigators={navigators} getValues={getValues} />;
     case 1:
-      return <ServicesInfo control={control} title={title} organizations={organizations} />;
-    // case 2:
-    //   return <Review title={title} data={data} />;
+      return <ServicesInfo control={control} title={title} organizations={organizations} isEditingMode={isEditingMode} />;
+    case 2:
+      return <FinalStep control={control} title={title} getValues={getValues} isEditingMode={isEditingMode} />;
     default:
       throw new Error('Unknown step');
   }
 }
 
 export default function AddParticipantPopup() {
-  const [activeStep, setActiveStep] = useState(0);
-  const {isShow, onAdd, isEditingMode, navigators, organizations, participantId, info} = useSelector(popupState)
+  const {isShow, onAdd, isEditingMode, navigators, organizations, participantId, info, defaultActiveStep} = useSelector(popupState)
+  const [activeStep, setActiveStep] = useState(defaultActiveStep || 0);
   const dispatch = useDispatch()
   const {control, reset, handleSubmit, getValues} = useForm({
     defaultValues: info
   });
+
+  const stepsArr = isEditingMode ? extra_steps : steps
 
   useEffect(() => {
     reset(info)
   }, [info])
 
   useEffect(() => {
-    setActiveStep(isEditingMode ? 1 : 0)
-  }, [isEditingMode])
+    setActiveStep(defaultActiveStep || 0)
+  }, [defaultActiveStep])
 
   const onSubmit = data => {
     const {services, ...rest} = data
+    let needs = typeof data.needs === 'string' ? data.needs.split(',') : data.needs
+
+    if (needs.includes('Other goals')) {
+      needs = [...needs, data.otherGoal].filter(n => n !== 'Other goals')
+    }
+
+
     const parsedData = {
       ...rest,
       tags: typeof data.tags === 'string' ? data.tags : data.tags.join(','),
       birthday: typeof data.birthday === 'string' ? data.birthday : data.birthday.format(dayFormat),
+      needs: needs.join(','),
     }
 
     const deletedServiceIds = info.services.reduce((acc, cur) => {
@@ -93,10 +105,12 @@ export default function AddParticipantPopup() {
         }))
       })
       
-      Promise.all([deletePromise, updatePromise]).then(() => {
-        onAdd && onAdd({ ...parsedData, participantId })
-        window.reloadParticipantInfo && window.reloadParticipantInfo(participantId)
-      })
+      Promise.all([deletePromise, updatePromise]).then(resp => {
+        if (resp) {
+          onAdd && onAdd({ ...parsedData, participantId })
+          window.reloadParticipantInfo && window.reloadParticipantInfo(participantId)
+        } 
+       })
 
       console.log(parsedData)
     })
@@ -114,9 +128,23 @@ export default function AddParticipantPopup() {
     setActiveStep(activeStep - 1);
   };
 
-  const isLastStep = activeStep === steps.length - 1
+  const isLastStep = activeStep === stepsArr.length - 1
 
-  return (
+  const getFooterButtons = () => {
+    return <Button variant="contained" onClick={handleSubmit(onSubmit)} sx={buttonSx}>Apply</Button>
+  }
+
+  const getTitle = () => {
+    if (defaultActiveStep === 1) {
+      return 'Book Service'
+    } else if (defaultActiveStep === 2) {
+      return 'Edit Participant'
+    }
+
+    return 'Add Participant'
+  }
+
+  return isShow && (
     <Dialog
       open={isShow}
       onClose={() => {}}
@@ -125,21 +153,27 @@ export default function AddParticipantPopup() {
       aria-describedby="scroll-dialog-description"
     >
       <DialogTitle id="scroll-dialog-title" align="center">
-        {isEditingMode ? 'Edit Participant' : 'Add Participant'} 
+        {getTitle()}
       </DialogTitle>
       <DialogContent>
-        <StepperPanel activeStep={activeStep} steps={steps} />
-        {getStepContent(activeStep, control, steps[activeStep], navigators, organizations, getValues)}
+        {!isEditingMode && <StepperPanel activeStep={activeStep} steps={stepsArr} />} 
+        {getStepContent(activeStep, control, stepsArr[activeStep], navigators, organizations, getValues, isEditingMode)}
       </DialogContent>
       <DialogActions>
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: 800 }}>
           <Button onClick={() => {
               reset()
               dispatch({type: 'add_participant_hide'})
-            }} sx={buttonSx}>Cancel</Button>
-          {activeStep !== 0 && <Button onClick={handleBack} sx={buttonSx}>Back</Button>}
-          {!isLastStep && <Button variant="contained" onClick={handleNext} sx={buttonSx}>Next</Button>}
-          {isLastStep && <Button variant="contained" onClick={handleSubmit(onSubmit)} sx={buttonSx}>{ isEditingMode ? 'Update' : 'Add' }</Button>}
+          }} sx={buttonSx}>Cancel</Button>
+          {
+            isEditingMode ? getFooterButtons() : (
+              <Fragment>
+                {activeStep !== 0 && <Button onClick={handleBack} sx={buttonSx}>Back</Button>}
+                {!isLastStep && <Button variant="contained" onClick={handleNext} sx={buttonSx}>Next</Button>}
+                {isLastStep && <Button variant="contained" onClick={handleSubmit(onSubmit)} sx={buttonSx}>Add</Button>}
+              </Fragment>
+            )
+          }
         </Box>
       </DialogActions>
     </Dialog>
