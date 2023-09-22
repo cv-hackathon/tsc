@@ -34,21 +34,11 @@ const getColumns = (navigate, dispatch) => [
     headerName: 'Case Worker Zoom',
     flex: 1,
   },
-  // {
-  //   field: 'description',
-  //   headerName: 'Description',
-  //   flex: 1,
-  // },
-  // {
-  //   field: 'action',
-  //   headerName: '',
-  //   flex: 1,
-  //   renderCell: params => {
-  //     const zoomId = params.row.caseWorkerZoom
-
-  //     return <Button variant="contained" size="small" color="primary" onClick={() => console.log(zoomId)}>Zoom</Button>
-  //   }
-  // },
+  {
+    field: 'location',
+    headerName: 'Location',
+    flex: 1,
+  },
 ];
 
 export default function OrganizationsTable({data}) {
@@ -59,7 +49,7 @@ export default function OrganizationsTable({data}) {
   const parsedData = useMemo(() => {
     return data.reduce((acc, row) => {
       row.services.forEach(s => {
-        acc.push({...s, serviceId: s.id, serviceName: s.name, caseWorkerEmail: s.email, caseWorkerZoom: s.zoom, organizationName: row.name, organizationEmail: row.email, organizationId: row.id})
+        acc.push({...s, serviceId: s.id, serviceName: s.name, caseWorkerEmail: s.email, caseWorkerZoom: s.zoom, organizationName: row.name, organizationEmail: row.email, organizationId: row.id, location: row.location})
       })
 
       return acc
