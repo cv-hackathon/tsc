@@ -6,6 +6,7 @@ import serviceDetailsReducer from "./serviceDetailsPopup";
 import globalInfoReducer from "./globalInfo";
 import uploadReducer from "./uploadPopup"
 import exportPopup from "./exportPopup"
+import alert from "./Alert"
 
 const rootReducer = combineReducers({
     loginReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
     globalInfo: globalInfoReducer,
     upload: uploadReducer,
     export: exportPopup,
+    alert,
 })
 
 export default rootReducer;
