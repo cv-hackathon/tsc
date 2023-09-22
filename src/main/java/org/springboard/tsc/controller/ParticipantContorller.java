@@ -1168,8 +1168,9 @@ public class ParticipantContorller {
                 cell2 = row.createCell(2);
                 cell2.setCellValue(info.getStatus());
                 
-                cell3 = row.createCell(3);
-                cell3.setCellValue(navigatorRepository.getReferenceById(info.getNavigatorId()).getName());
+                Navigator na = navigatorRepository.getReferenceById(info.getNavigatorId());
+                cell3 = row.createCell(3);                
+                cell3.setCellValue(na != null ? na.getName() : "");
                 
                 cell4 = row.createCell(4);
                 cell4.setCellValue(info.getServiceName());
