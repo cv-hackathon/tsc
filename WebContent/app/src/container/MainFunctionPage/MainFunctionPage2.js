@@ -54,7 +54,6 @@ const getFunctionConfig = (dispatch) => ({
 export default function MainFunctionPage() {
   const dispatch = useDispatch();
   const funcConfig = getFunctionConfig(dispatch);
-  console.log(funcConfig)
 
   const renderFuncCard = () => {
     return Object.keys(funcConfig).map(type => (
@@ -104,10 +103,9 @@ export default function MainFunctionPage() {
       </div>
       <div id="meetingSDKElement"></div>
       <Stack spacing={2} direction="row" alignItems='center' width='100%' justifyContent='space-around' useFlexGap flexWrap="wrap">
-        <FunctionCard iconEle={<ImportExportOutlinedIcon />} header='Cases' title="Import Cases" onClick={() => dispatch({type: 'upload_show'})} image={'/import_img.jpeg'}/>
-        <FunctionCard iconEle={<ExitToAppOutlinedIcon />} header='Services' title="Export Cases" onClick={() => dispatch({type: 'export_show'})} image={'/export_img.jpeg'}/>
-        <FunctionCard iconEle={<PersonAddOutlinedIcon />} header='Homeless' title="Add Participant" onClick={() => dispatch({type: 'add_participant_show'})} image={'/homeless.png'}/>
-        <FunctionCard iconEle={<DomainAddOutlinedIcon />} header='Coordinator' title="Add Organization" onClick={() => dispatch({type: 'add_organization_show'})} image={'/coordinator.png'}/>
+      {
+        renderFuncCard()
+      }  
       </Stack>
     </Box>
   );
