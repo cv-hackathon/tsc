@@ -38,7 +38,7 @@ function BasicInfo({ participantId, info }) {
         <Stack direction={'row'} spacing={2}>
           <Button variant="contained" size="small" color="primary" sx={{ height: '30px'}} onClick={() => {
             dispatch({ type: 'add_participant_show', isEditingMode: true, info, defaultActiveStep: 2 })
-          }}>Actions</Button>
+          }}>Edit</Button>
           <Button variant="contained" size="small" color="primary" sx={{ height: '30px' }} onClick={() => {
             dispatch({ type: 'add_participant_show', isEditingMode: true, info, defaultActiveStep: 1 })
           }}>Book Service</Button>

@@ -53,7 +53,7 @@ const achieveReasonOpts = [
   }
 ]
 
-export default function FinalStep({ title, control, getValues }) {
+export default function FinalStep({ title, control, getValues, isEditingMode }) {
   const [showExitReason, updateExitReasonShow] = useState(getValues('exit'))
   const [showAchieveReason, updateAchieveReasonShow] = useState(getValues('achievement'))
 
@@ -67,7 +67,7 @@ export default function FinalStep({ title, control, getValues }) {
     
   return (
     <Fragment>
-      <Typography variant="h6" gutterBottom>{title}</Typography>
+      {!isEditingMode && <Typography variant="h6" gutterBottom>{title}</Typography>}
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
           <FormRadioGroup label="If Has Bank Account"control={control} name="bankCardOpen" options={bankOpts} />
@@ -75,19 +75,19 @@ export default function FinalStep({ title, control, getValues }) {
         <Grid item xs={12} sm={4}>
           <FormRadioGroup label="Completed" control={control} name="achievement" options={completeOpts} onValueChanged={ onAchieveChanged } />
         </Grid>
-        {showAchieveReason && (
-          <Grid item xs={12} sm={8}>
+        <Grid item xs={12} sm={8} textAlign="left" display={'flex'} alignItems={'flex-end'}>
+          {showAchieveReason && (
             <FormSelect label="Achievements" control={control} name="achieveReason" width={'100%'} options={achieveReasonOpts} />
-          </Grid>
-        )}
+          )}
+        </Grid>
         <Grid item xs={12} sm={4}>
           <FormRadioGroup label="Exit" control={control} name="exit" options={exitOpts} onValueChanged={ onExitChanged } />
         </Grid>
-        {showExitReason && (
-          <Grid item xs={12} sm={8} textAlign="left" display={'flex'} alignItems={'flex-end'}>
+        <Grid item xs={12} sm={8} textAlign="left" display={'flex'} alignItems={'flex-end'}>
+          {showExitReason && ( 
             <FormSelect label="Exit Reason" control={control} name="exitReason" width={'100%'} options={exitReasonOpts} />
-          </Grid>
-        )}
+          )}
+        </Grid>
       </Grid>
     </Fragment>
   )
