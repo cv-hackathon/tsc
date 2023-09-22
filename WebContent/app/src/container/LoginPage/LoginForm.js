@@ -160,8 +160,8 @@ export default function LoginForm() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="TSC Worker" {...a11yProps(0)} />
-          <Tab label="Organization" {...a11yProps(1)} />
+          <Tab label="Navigator" {...a11yProps(0)} />
+          <Tab label="Case Worker" {...a11yProps(1)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0} loading={loading} handleSubmit={handleSubmit} authorized={authorized} />

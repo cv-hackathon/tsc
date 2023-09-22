@@ -56,7 +56,7 @@ function BasicInfo({ participantId, info }) {
           <TextField label="Phone" variant="outlined" value={info.phone} InputProps={{ readOnly: true }} />
         </Grid>
         <Grid item xs={6} sm={2}>
-          <TextField label="Bank Account" variant="outlined" value={info.backCardOpen || 'N'} InputProps={{readOnly: true}}  />
+          <TextField label="Bank Account" variant="outlined" value={info.bankCardOpen} InputProps={{readOnly: true}}  />
         </Grid>
         <Grid item xs={6} sm={4}>
           <TextField label="Email" variant="outlined" fullWidth value={info.email} InputProps={{readOnly: true}}  />
