@@ -34,7 +34,7 @@ function Contacts({ participantId, info }) {
   const members = useMemo(() => {
     const workers = info.services.map(it => ({
       name: it.caseWorker,
-      role: 'Case Workder',
+      role: 'Case Worker',
     }))
 
     return [{ name: `${info.navigatorName}`, role: 'Navigator' }, ...workers]
