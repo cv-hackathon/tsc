@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -1168,9 +1169,9 @@ public class ParticipantContorller {
                 cell2 = row.createCell(2);
                 cell2.setCellValue(info.getStatus());
                 
-                Navigator na = navigatorRepository.getReferenceById(info.getNavigatorId());
+                Optional<Navigator>  na = navigatorRepository.findById(info.getNavigatorId());
                 cell3 = row.createCell(3);                
-                cell3.setCellValue(na != null ? na.getName() : "");
+                cell3.setCellValue(na.isPresent() ? na.get().getName() : "");
                 
                 cell4 = row.createCell(4);
                 cell4.setCellValue(info.getServiceName());
