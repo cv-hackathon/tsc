@@ -139,7 +139,7 @@ const ColorlibStepIconRoot = styled('div')(({ theme, ownerState }) => ({
       'linear-gradient( 136deg, rgb(236,199,131) 0%, rgb(229,186,52) 50%, rgb(227,147,12) 100%)',
     boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
   }),
-  ...(ownerState.status === 2 && ownerState.completed && {
+  ...(ownerState.status === 2 && (ownerState.active || ownerState.completed) && {
     backgroundImage:
       'linear-gradient( 136deg, rgb(122,223,136) 0%, rgb(92,194,92) 50%, rgb(61,144,31) 100%)',
   }),
@@ -195,31 +195,50 @@ export default function CustomizedSteppers({ info }) {
       ...it,
       services: filteredServices,
       info: restInfo,
-      status: filteredServices.length > 0 && filteredServices.every(it => it.serviceStatus?.toLowerCase() === 'open') ?
-        0
-        :
-        (filteredServices.length === 0 || filteredServices.every(it => it.serviceStatus?.toLowerCase() === 'completed')) ? 2 : 1,
     }
   }), [info])
 
-  const activeStep = useMemo(() => {
+  const getActiveStep = () => {
     if (info.status === 'Completed') {
-      return 5
+      return 4
     } else if (info.status === 'Registered') {
       return 1
     } else {
       return Math.max(...(categories.filter(c => c.services?.length > 0).map(c => c.step)))
     }
-  }, [info, categories]) 
+  }
+
+  const activeStep = getActiveStep()
+
+  const cateWithStatus = categories.map(item => {
+    const { services, step } = item
+    
+    let status
+
+    if (step > activeStep) {
+      status = -1
+    } else if (services.length > 0 && services.every(it => it.serviceStatus?.toLowerCase() === 'open')) {
+      status = 0
+    } else if (services.length === 0 || services.every(it => it.serviceStatus?.toLowerCase() === 'completed')) {
+      status = 2
+    } else {
+      status = 1
+    }
+
+    return {
+      ...item,
+      status
+    }
+  })
   
   return (
     <Stack sx={{ width: '100%', position: 'relative' }} spacing={2}>
         <Indicators />
-        <ServiceSection categories={categories} />
+        <ServiceSection categories={cateWithStatus} />
         <Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />} >
           {STEPS.map(({ label }, idx) => (
             <Step key={label}>
-              <StepLabel StepIconComponent={(props) => <ColorlibStepIcon category={categories[idx]} {...props} />}>{label}</StepLabel>
+              <StepLabel StepIconComponent={(props) => <ColorlibStepIcon category={cateWithStatus[idx]} {...props} />}>{label}</StepLabel>
             </Step>
           ))}
         </Stepper>
