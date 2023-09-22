@@ -15,6 +15,7 @@ const default_state = {
     navigatorId: '',
     services: [],
     tags: [],
+    defaultActiveStep: 0
   }
 }
 
@@ -27,7 +28,8 @@ export default (state = default_state, action) => {
         isShow: true,
         onAdd: action.onAdd,
         isEditingMode: action.isEditingMode,
-        info: action.info
+        info: action.info,
+        defaultActiveStep: action.defaultActiveStep
       }
     }
     case "add_participant_hide": {

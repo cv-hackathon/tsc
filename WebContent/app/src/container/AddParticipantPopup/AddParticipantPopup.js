@@ -13,13 +13,15 @@ import Box from '@mui/material/Box';
 import StepperPanel from './StepperPanel'
 import ParticipantBaseInfo from './ParticipantBaseInfo'
 import ServicesInfo from './ServicesInfo'
-import Review from './Review'
+import FinalStep from './FinalStep'
 import ResultPanel from './ResultPanel'
 
 import {dayFormat} from '../../utils/constants'
 import doFetch from '../../utils/doFetch'
 
 const steps = ['Participant Base Info', 'Plan Services']
+const extra_steps = ['Participant Base Info', 'Plan Services', 'Addition Actions']
+
 const buttonSx = {mt: 3, ml: 1}
 // const defaultInputs = {
 //   firstname: '',
@@ -43,28 +45,30 @@ function getStepContent(step, control, title, navigators, organizations, getValu
       return <ParticipantBaseInfo control={control} title={title} navigators={navigators} getValues={getValues} />;
     case 1:
       return <ServicesInfo control={control} title={title} organizations={organizations} />;
-    // case 2:
-    //   return <Review title={title} data={data} />;
+    case 2:
+      return <FinalStep control={control} title={title} getValues={getValues} />;
     default:
       throw new Error('Unknown step');
   }
 }
 
 export default function AddParticipantPopup() {
-  const [activeStep, setActiveStep] = useState(0);
-  const {isShow, onAdd, isEditingMode, navigators, organizations, participantId, info} = useSelector(popupState)
+  const {isShow, onAdd, isEditingMode, navigators, organizations, participantId, info, defaultActiveStep} = useSelector(popupState)
+  const [activeStep, setActiveStep] = useState(defaultActiveStep || 0);
   const dispatch = useDispatch()
   const {control, reset, handleSubmit, getValues} = useForm({
     defaultValues: info
   });
+
+  const stepsArr = isEditingMode ? extra_steps : steps
 
   useEffect(() => {
     reset(info)
   }, [info])
 
   useEffect(() => {
-    setActiveStep(isEditingMode ? 1 : 0)
-  }, [isEditingMode])
+    setActiveStep(defaultActiveStep || 0)
+  }, defaultActiveStep)
 
   const onSubmit = data => {
     const {services, ...rest} = data
@@ -93,10 +97,12 @@ export default function AddParticipantPopup() {
         }))
       })
       
-      Promise.all([deletePromise, updatePromise]).then(() => {
-        onAdd && onAdd({ ...parsedData, participantId })
-        window.reloadParticipantInfo && window.reloadParticipantInfo(participantId)
-      })
+      Promise.all([deletePromise, updatePromise]).then(resp => {
+        if (resp) {
+          onAdd && onAdd({ ...parsedData, participantId })
+          window.reloadParticipantInfo && window.reloadParticipantInfo(participantId)
+        } 
+       })
 
       console.log(parsedData)
     })
@@ -114,9 +120,9 @@ export default function AddParticipantPopup() {
     setActiveStep(activeStep - 1);
   };
 
-  const isLastStep = activeStep === steps.length - 1
+  const isLastStep = activeStep === stepsArr.length - 1
 
-  return (
+  return isShow && (
     <Dialog
       open={isShow}
       onClose={() => {}}
@@ -128,8 +134,8 @@ export default function AddParticipantPopup() {
         {isEditingMode ? 'Edit Participant' : 'Add Participant'} 
       </DialogTitle>
       <DialogContent>
-        <StepperPanel activeStep={activeStep} steps={steps} />
-        {getStepContent(activeStep, control, steps[activeStep], navigators, organizations, getValues)}
+        <StepperPanel activeStep={activeStep} steps={stepsArr} />
+        {getStepContent(activeStep, control, stepsArr[activeStep], navigators, organizations, getValues)}
       </DialogContent>
       <DialogActions>
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: 800 }}>
