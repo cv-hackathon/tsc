@@ -169,6 +169,7 @@ public class ParticipantContorller {
 		//Participant
 		Participant p = new Participant();
 		p.setParticipantId(1L);
+		p.setCabin("#101");
 		p.setBirthday("1968-02-01");
 		p.setLastname("Lyons");
 		p.setFirstname("Rebecca");
@@ -186,7 +187,9 @@ public class ParticipantContorller {
 		participantRepository.save(p);
 
 		Participant p2 = new Participant();
-		p.setParticipantId(2L);
+		p2.setParticipantId(2L);
+		p2.setAchievement("Y");
+		p2.setCabin("#103");
 		p2.setBirthday("1999-02-01");
 		p2.setLastname("Terry");
 		p2.setFirstname("Bobby");
@@ -202,7 +205,7 @@ public class ParticipantContorller {
 		participantRepository.save(p2);
 
 		Participant p3 = new Participant();
-		p.setParticipantId(3L);
+		p3.setParticipantId(3L);
 		p3.setBirthday("2001-01-01");
 		p3.setLastname("Freck");
 		p3.setFirstname("Joyce");
@@ -218,7 +221,7 @@ public class ParticipantContorller {
 		participantRepository.save(p3);
 
 		Participant p4 = new Participant();
-		p.setParticipantId(4L);
+		p4.setParticipantId(4L);
 		p4.setBirthday("1983-06-05");
 		p4.setLastname("Baker");
 		p4.setFirstname("Kathleen");
@@ -234,7 +237,7 @@ public class ParticipantContorller {
 		participantRepository.save(p4);
 
 		Participant p5 = new Participant();
-		p.setParticipantId(5L);
+		p5.setParticipantId(5L);
 		p5.setBirthday("1968-02-01");
 		p5.setLastname("Morris");
 		p5.setFirstname("Jacob (Wes)");
@@ -250,7 +253,7 @@ public class ParticipantContorller {
 		participantRepository.save(p5);
 
 		Participant p6 = new Participant();
-		p.setParticipantId(6L);
+		p6.setParticipantId(6L);
 		p6.setBirthday("1968-02-01");
 		p6.setLastname("Carswel");
 		p6.setFirstname("Freddie");
@@ -266,7 +269,7 @@ public class ParticipantContorller {
 		participantRepository.save(p6);
 
 		Participant p7 = new Participant();
-		p.setParticipantId(7L);
+		p7.setParticipantId(7L);
 		p7.setBirthday("1968-02-01");
 		p7.setLastname("Brade");
 		p7.setFirstname("Lin");
@@ -282,7 +285,7 @@ public class ParticipantContorller {
 		participantRepository.save(p7);
 
 		Participant p8 = new Participant();
-		p.setParticipantId(8L);
+		p8.setParticipantId(8L);
 		p8.setBirthday("2001-01-01");
 		p8.setLastname("Tolbert");
 		p8.setFirstname("Jacqueline");
@@ -298,7 +301,7 @@ public class ParticipantContorller {
 		participantRepository.save(p8);
 
 		Participant p9 = new Participant();
-		p.setParticipantId(9L);
+		p9.setParticipantId(9L);
 		p9.setBirthday("1983-06-05");
 		p9.setLastname("Fisher");
 		p9.setFirstname("James");
@@ -314,7 +317,7 @@ public class ParticipantContorller {
 		participantRepository.save(p9);
 
 		Participant p10 = new Participant();
-		p.setParticipantId(10L);
+		p10.setParticipantId(10L);
 		p10.setBirthday("1968-02-01");
 		p10.setLastname("Warner");
 		p10.setFirstname("Joy");
@@ -330,7 +333,7 @@ public class ParticipantContorller {
 		participantRepository.save(p10);
 
 		Participant p11 = new Participant();
-		p.setParticipantId(11L);
+		p11.setParticipantId(11L);
 		p11.setBirthday("1999-02-01");
 		p11.setLastname("Botts");
 		p11.setFirstname("Jeffrey");
@@ -346,7 +349,7 @@ public class ParticipantContorller {
 		participantRepository.save(p11);
 
 		Participant p12 = new Participant();
-		p.setParticipantId(12L);
+		p12.setParticipantId(12L);
 		p12.setBirthday("2001-01-01");
 		p12.setLastname("Armstrong");
 		p12.setFirstname("Wendy");
@@ -362,7 +365,7 @@ public class ParticipantContorller {
 		participantRepository.save(p12);
 
 		Participant p13 = new Participant();
-		p.setParticipantId(13L);
+		p13.setParticipantId(13L);
 		p13.setBirthday("1983-06-05");
 		p13.setLastname("Wagner");
 		p13.setFirstname("Jessica");
@@ -378,7 +381,7 @@ public class ParticipantContorller {
 		participantRepository.save(p13);
 
 		Participant p14 = new Participant();
-		p.setParticipantId(14L);
+		p14.setParticipantId(14L);
 		p14.setBirthday("1968-02-01");
 		p14.setLastname("Perez");
 		p14.setFirstname("Anner");
@@ -394,7 +397,7 @@ public class ParticipantContorller {
 		participantRepository.save(p14);
 
 		Participant p15 = new Participant();
-		p.setParticipantId(15L);
+		p15.setParticipantId(15L);
 		p15.setBirthday("1999-02-01");
 		p15.setLastname("Roberts");
 		p15.setFirstname("Kevin");
@@ -410,7 +413,7 @@ public class ParticipantContorller {
 		participantRepository.save(p15);
 
 		Participant p16 = new Participant();
-		p.setParticipantId(16L);
+		p16.setParticipantId(16L);
 		p16.setBirthday("2001-01-01");
 		p16.setLastname("Stevenson/Baker");
 		p16.setFirstname("Kristen");
@@ -426,7 +429,7 @@ public class ParticipantContorller {
 		participantRepository.save(p16);
 
 		Participant p17 = new Participant();
-		p.setParticipantId(17L);
+		p17.setParticipantId(17L);
 		p17.setBirthday("1983-06-05");
 		p17.setLastname("Carter");
 		p17.setFirstname("Eunice");
@@ -444,7 +447,7 @@ public class ParticipantContorller {
 		participantRepository.save(p17);
 
 		Participant p18 = new Participant();
-		p.setParticipantId(18L);
+		p18.setParticipantId(18L);
 		p18.setBirthday("1968-02-01");
 		p18.setLastname("Carter");
 		p18.setFirstname("Margaret");
@@ -460,366 +463,6 @@ public class ParticipantContorller {
 		p18.setExitReason("Rule Viotalions");
 		p18.setCreateTime(new Timestamp(System.currentTimeMillis()));
 		participantRepository.save(p18);
-//
-//		Participant p19 = new Participant();
-//		p.setParticipantId(19L);
-//		p19.setBirthday("1999-02-01");
-//		p19.setLastname("Parker");
-//		p19.setFirstname("Clyde");
-//		p19.setPhone("302-313-6028");
-//		p19.setTags("");
-//		p19.setNeeds("");
-//		p19.setGender("Female");
-//		p19.setNavigatorId(1L);
-//		p19.setStatus("In Progress");
-//		p19.setEmail("Clyde@foxmail.com");
-//		p19.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p19);
-//
-//		Participant p20 = new Participant();
-//		p.setParticipantId(20L);
-//		p20.setBirthday("2001-01-01");
-//		p20.setLastname("Bowen");
-//		p20.setFirstname("Wendy");
-//		p20.setPhone("302-313-6028");
-//		p20.setTags("");
-//		p20.setNeeds("Connection to Services");
-//		p20.setGender("Male");
-//		p20.setNavigatorId(2L);
-//		p20.setStatus("In Progress");
-//		p20.setEmail("Wendy@foxmail.com");
-//		p20.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p20);
-//
-//		Participant p21 = new Participant();
-//		p.setParticipantId(21L);
-//		p21.setBirthday("1983-06-05");
-//		p21.setLastname("Stanley");
-//		p21.setFirstname("Darrell");
-//		p21.setPhone("302-313-6028");
-//		p21.setTags("SUD");
-//		p21.setNeeds("Life Skills");
-//		p21.setGender("Female");
-//		p21.setNavigatorId(1L);
-//		p21.setStatus("In Progress");
-//		p21.setEmail("Darrell@foxmail.com");
-//		p21.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p21);
-//
-//		Participant p22 = new Participant();
-//		p.setParticipantId(22L);
-//		p22.setBirthday("1968-02-01");
-//		p22.setLastname("Gibbs");
-//		p22.setFirstname("Luis");
-//		p22.setPhone("302-614-2284");
-//		p22.setTags("SUD");
-//		p22.setNeeds("Employment/connection to services");
-//		p22.setGender("Male");
-//		p22.setNavigatorId(2L);
-//		p22.setStatus("In Progress");
-//		p22.setEmail("Luis@foxmail.com");
-//		p22.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p22);
-//
-//		Participant p23 = new Participant();
-//		p.setParticipantId(23L);
-//		p23.setBirthday("1999-02-01");
-//		p23.setLastname("Belfield");
-//		p23.setFirstname("John");
-//		p23.setPhone("302-313-6028");
-//		p23.setTags("MHD,SUD");
-//		p23.setNeeds("");
-//		p23.setGender("Female");
-//		p23.setNavigatorId(1L);
-//		p23.setStatus("In Progress");
-//		p23.setEmail("John@foxmail.com");
-//		p23.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p23);
-//
-//		Participant p24 = new Participant();
-//		p.setParticipantId(24L);
-//		p24.setBirthday("2001-01-01");
-//		p24.setLastname("Fitzgerald");
-//		p24.setFirstname("John");
-//		p24.setPhone("302-313-6028");
-//		p24.setTags("MHD");
-//		p24.setNeeds("Elderly");
-//		p24.setGender("Male");
-//		p24.setNavigatorId(2L);
-//		p24.setStatus("In Progress");
-//		p24.setEmail("Fitzgerald@foxmail.com");
-//		p24.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p24);
-//
-//		Participant p25 = new Participant();
-//		p.setParticipantId(25L);
-//		p25.setBirthday("1983-06-05");
-//		p25.setLastname("Gibbs");
-//		p25.setFirstname("Amalee");
-//		p25.setPhone("302-390-2182");
-//		p25.setTags("");
-//		p25.setNeeds("employment");
-//		p25.setGender("Female");
-//		p25.setNavigatorId(1L);
-//		p25.setStatus("In Progress");
-//		p25.setEmail("Amalee@foxmail.com");
-//		p25.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p25);
-//
-//		Participant p26 = new Participant();
-//		p.setParticipantId(26L);
-//		p26.setBirthday("1968-02-01");
-//		p26.setLastname("Sturgis");
-//		p26.setFirstname("Kelly");
-//		p26.setPhone("302-236-8306");
-//		p26.setTags("MHD");
-//		p26.setNeeds("");
-//		p26.setGender("Male");
-//		p26.setNavigatorId(1L);
-//		p26.setStatus("In Progress");
-//		p26.setEmail("Kelly@foxmail.com");
-//		p26.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p26);
-//
-//		Participant p27 = new Participant();
-//		p.setParticipantId(27L);
-//		p27.setBirthday("1999-02-01");
-//		p27.setLastname("Jones");
-//		p27.setFirstname("Richard");
-//		p27.setPhone("302-313-6028");
-//		p27.setTags("");
-//		p27.setNeeds("Life Skills");
-//		p27.setGender("Male");
-//		p27.setNavigatorId(2L);
-//		p27.setStatus("In Progress");
-//		p27.setEmail("Richard@foxmail.com");
-//		p27.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p27);
-//
-//		Participant p28 = new Participant();
-//		p.setParticipantId(28L);
-//		p28.setBirthday("2001-01-01");
-//		p28.setLastname("Lofland");
-//		p28.setFirstname("Charlie");
-//		p28.setPhone("202-300-3865");
-//		p28.setTags("MHD,SUD");
-//		p28.setNeeds("Life Skills Housing program");
-//		p28.setGender("Male");
-//		p28.setNavigatorId(1L);
-//		p28.setStatus("In Progress");
-//		p28.setEmail("Charlie@foxmail.com");
-//		p28.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p28);
-//
-//		Participant p29 = new Participant();
-//		p.setParticipantId(29L);
-//		p29.setBirthday("1983-06-05");
-//		p29.setLastname("Smith");
-//		p29.setFirstname("Becky");
-//		p29.setPhone("302-313-6028");
-//		p29.setTags("MHD");
-//		p29.setNeeds("Life Skills");
-//		p29.setGender("Female");
-//		p29.setNavigatorId(1L);
-//		p29.setStatus("In Progress");
-//		p29.setEmail("Becky@foxmail.com");
-//		p29.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p29);
-//
-//		Participant p30 = new Participant();
-//		p.setParticipantId(30L);
-//		p30.setBirthday("1968-02-01");
-//		p30.setLastname("Bryant");
-//		p30.setFirstname("Darrie");
-//		p30.setPhone("302-313-6028");
-//		p30.setTags("MHD,SUD");
-//		p30.setNeeds("Life Skills");
-//		p30.setGender("Male");
-//		p30.setNavigatorId(2L);
-//		p30.setStatus("In Progress");
-//		p30.setEmail("Darrie@foxmail.com");
-//		p30.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p30);
-//
-//		Participant p31 = new Participant();
-//		p.setParticipantId(31L);
-//		p31.setBirthday("1999-02-01");
-//		p31.setLastname("Morton");
-//		p31.setFirstname("Fracyne");
-//		p31.setPhone("302-245-0281");
-//		p31.setTags("SUD");
-//		p31.setNeeds("elderly");
-//		p31.setGender("Female");
-//		p31.setNavigatorId(1L);
-//		p31.setStatus("In Progress");
-//		p31.setEmail("Fracyne@foxmail.com");
-//		p31.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p31);
-//
-//		Participant p32 = new Participant();
-//		p.setParticipantId(32L);
-//		p32.setBirthday("2001-01-01");
-//		p32.setLastname("McErlane");
-//		p32.setFirstname("Jenniffier");
-//		p32.setPhone("302-313-6028");
-//		p32.setTags("");
-//		p32.setNeeds("");
-//		p32.setGender("Male");
-//		p32.setNavigatorId(2L);
-//		p32.setStatus("In Progress");
-//		p32.setEmail("Jenniffier@foxmail.com");
-//		p32.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p32);
-//
-//		Participant p33 = new Participant();
-//		p.setParticipantId(33L);
-//		p33.setBirthday("1983-06-05");
-//		p33.setLastname("Lewis");
-//		p33.setFirstname("William");
-//		p33.setPhone("302-339-1530");
-//		p33.setTags("SUD");
-//		p33.setNeeds("Life Skills");
-//		p33.setGender("Female");
-//		p33.setNavigatorId(1L);
-//		p33.setStatus("In Progress");
-//		p33.setEmail("William@foxmail.com");
-//		p33.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p33);
-//
-//		Participant p34 = new Participant();
-//		p.setParticipantId(34L);
-//		p34.setBirthday("1968-02-01");
-//		p34.setLastname("Porter");
-//		p34.setFirstname("William");
-//		p34.setPhone("302-579-6586");
-//		p34.setTags("");
-//		p34.setNeeds("Life Skills");
-//		p34.setGender("Male");
-//		p34.setNavigatorId(1L);
-//		p34.setStatus("In Progress");
-//		p34.setEmail("Porter@foxmail.com");
-//		p34.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p34);
-//
-//		Participant p35 = new Participant();
-//		p.setParticipantId(35L);
-//		p35.setBirthday("1999-02-01");
-//		p35.setLastname("Bullock");
-//		p35.setFirstname("Marcellous");
-//		p35.setPhone("302-245-8350");
-//		p35.setTags("MHD,SUD");
-//		p35.setNeeds("Service Connections");
-//		p35.setGender("Female");
-//		p35.setNavigatorId(2L);
-//		p35.setStatus("In Progress");
-//		p35.setEmail("Marcellous@foxmail.com");
-//		p35.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p35);
-//
-//		Participant p36 = new Participant();
-//		p.setParticipantId(36L);
-//		p36.setBirthday("2001-01-01");
-//		p36.setLastname("Tilley");
-//		p36.setFirstname("Denise");
-//		p36.setPhone("410-202-9034");
-//		p36.setTags("SUD");
-//		p36.setNeeds("Service Connection");
-//		p36.setGender("Male");
-//		p36.setNavigatorId(1L);
-//		p36.setStatus("In Progress");
-//		p36.setEmail("Denise@foxmail.com");
-//		p36.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p36);
-//
-//		Participant p37 = new Participant();
-//		p.setParticipantId(37L);
-//		p37.setBirthday("1983-06-05");
-//		p37.setLastname("Collins");
-//		p37.setFirstname("James");
-//		p37.setPhone("302-313-6028");
-//		p37.setTags("");
-//		p37.setNeeds("Life Skills");
-//		p37.setGender("Male");
-//		p37.setNavigatorId(1L);
-//		p37.setStatus("In Progress");
-//		p37.setEmail("James@foxmail.com");
-//		p37.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p37);
-//
-//		Participant p38 = new Participant();
-//		p.setParticipantId(38L);
-//		p38.setBirthday("1968-02-01");
-//		p38.setLastname("Bullock");
-//		p38.setFirstname("Lillie");
-//		p38.setPhone("302-581-7657");
-//		p38.setTags("");
-//		p38.setNeeds("elderly");
-//		p38.setGender("Male");
-//		p38.setNavigatorId(1L);
-//		p38.setStatus("In Progress");
-//		p38.setEmail("Lillie@foxmail.com");
-//		p38.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p38);
-//
-//		Participant p39 = new Participant();
-//		p.setParticipantId(39L);
-//		p39.setBirthday("1999-02-01");
-//		p39.setLastname("Hopkins");
-//		p39.setFirstname("Anthony");
-//		p39.setPhone("302-313-6088");
-//		p39.setTags("SUD");
-//		p39.setNeeds("Reentry");
-//		p39.setGender("Female");
-//		p39.setNavigatorId(2L);
-//		p39.setStatus("In Progress");
-//		p39.setEmail("Anthony@foxmail.com");
-//		p39.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p39);
-//
-//		Participant p40 = new Participant();
-//		p.setParticipantId(40L);
-//		p40.setBirthday("2001-01-01");
-//		p40.setLastname("Dula");
-//		p40.setFirstname("Matt");
-//		p40.setPhone("302-313-6028");
-//		p40.setTags("SUD");
-//		p40.setNeeds("");
-//		p40.setGender("Male");
-//		p40.setNavigatorId(2L);
-//		p40.setStatus("In Progress");
-//		p40.setEmail("Matt@foxmail.com");
-//		p40.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p40);
-//
-//		Participant p41 = new Participant();
-//		p.setParticipantId(41L);
-//		p41.setBirthday("1983-06-05");
-//		p41.setLastname("Tinoco-Alverez");
-//		p41.setFirstname("Luis");
-//		p41.setPhone("302-313-6028");
-//		p41.setTags("");
-//		p41.setNeeds("life skills employment");
-//		p41.setGender("Male");
-//		p41.setNavigatorId(1L);
-//		p41.setStatus("In Progress");
-//		p41.setEmail("Luis@foxmail.com");
-//		p41.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p41);
-//
-//		Participant p42 = new Participant();
-//		p.setParticipantId(42L);
-//		p42.setBirthday("1987-09-08");
-//		p42.setLastname("Delacruz");
-//		p42.setFirstname("Jaime");
-//		p42.setPhone("302-278-3175");
-//		p42.setTags("");
-//		p42.setNeeds("");
-//		p42.setGender("Male");
-//		p42.setNavigatorId(1L);
-//		p42.setStatus("In Progress");
-//		p42.setEmail("Jaime@foxmail.com");
-//		p42.setCreateTime(new Timestamp(System.currentTimeMillis()));
-//		participantRepository.save(p42);
 
 		//Service
 		//Dental Service
@@ -1279,7 +922,9 @@ public class ParticipantContorller {
 					pVo.setRegisterTime(info.getRegisterTime());
 					pVo.setGender(info.getGender());
 					pVo.setBankCardOpen(info.getBankCardOpen());
+					pVo.setCabin(info.getCabin());
 					pVo.setExit("Y".equalsIgnoreCase(info.getExit())? "Y":"N");
+					pVo.setAchievement("Y".equalsIgnoreCase(info.getAchievement())? "Y":"N");
 					pVo.setExitReason(info.getExitReason());
 
 					List<ServiceVo> services = new ArrayList<>();
@@ -1334,14 +979,16 @@ public class ParticipantContorller {
 		}
 		
 		vos.stream().forEach( vo -> {
-			if(CollectionUtils.isEmpty(vo.getServices())) {
+			if ("Y".equalsIgnoreCase(vo.getExit())) {
+				vo.setStatus("Exited");
+			} else if ("Y".equalsIgnoreCase(vo.getAchievement())) {
+				vo.setStatus("Completed");
+			} else if(CollectionUtils.isEmpty(vo.getServices())) {
 				vo.setStatus("Registered");
 			} else {
 				List<ServiceVo> services = vo.getServices();
 				if(services.stream().allMatch(s -> "Open".equalsIgnoreCase(s.getServiceStatus()))) {
 					vo.setStatus("Open");
-				} else if(services.stream().allMatch(s -> "Completed".equalsIgnoreCase(s.getServiceStatus()))){
-					vo.setStatus("Completed");
 				} else {
 					vo.setStatus("In Progress");
 				}

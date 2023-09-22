@@ -30,6 +30,8 @@ public class Participant implements Serializable {
     private String status;
     private String exit;
     private String exitReason;
+    private String cabin;
+    private String achievement;
     private Timestamp createTime;
 
     public Participant() {
