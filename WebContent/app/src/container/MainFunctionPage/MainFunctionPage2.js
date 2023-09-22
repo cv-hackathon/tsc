@@ -61,7 +61,7 @@ export default function MainFunctionPage() {
         iconEle={funcConfig[type].icon}
         header={type}
         title={funcConfig[type].title}
-        onClick={funcConfig[type].onCick}
+        onClick={funcConfig[type].onClick}
         image={funcConfig[type].img}
         desc={funcConfig[type].desc}
         key={type}
