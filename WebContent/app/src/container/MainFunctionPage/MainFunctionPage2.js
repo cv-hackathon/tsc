@@ -32,7 +32,7 @@ const getFunctionConfig = (dispatch) => ({
     title: 'Export Cases',
     desc: 'Export participants list for easy offline services checking',
     img: '/export_img.jpeg',
-    onCick: exportFile,
+    onClick: exportFile,
     icon: <ImportExportOutlinedIcon />
   },
   Participant: {
