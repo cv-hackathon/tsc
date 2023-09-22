@@ -61,7 +61,7 @@ export default function MainFunctionPage() {
         iconEle={funcConfig[type].icon}
         header={type}
         title={funcConfig[type].title}
-        onClick={funcConfig[type].onCick}
+        onClick={funcConfig[type].onClick}
         image={funcConfig[type].img}
         desc={funcConfig[type].desc}
         key={type}
@@ -104,7 +104,7 @@ export default function MainFunctionPage() {
       <div id="meetingSDKElement"></div>
       <Stack spacing={2} direction="row" alignItems='center' width='100%' justifyContent='space-around' useFlexGap flexWrap="wrap">
       {
-        renderFuncCard()
+        renderFuncCard(dispatch)
       }  
       </Stack>
     </Box>

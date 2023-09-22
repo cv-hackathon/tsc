@@ -73,7 +73,7 @@ function BasicInfo({ participantId, info }) {
           </Grid>
         )}
         <Grid item xs={6} sm={4}>
-          <TextField label="Needs / Goal" fullWidth variant="outlined" value={info.needs} InputProps={{readOnly: true}}  />
+          <TextField label="Needs / Goals" fullWidth variant="outlined" value={info.needs} InputProps={{readOnly: true}}  />
         </Grid>
       </Grid> 
     </Stack>

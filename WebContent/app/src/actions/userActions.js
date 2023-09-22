@@ -2,7 +2,7 @@ export const userLogin = (info, remember, dispatch) => {
     if (remember && window.localStorage) {
         const data = window.localStorage.getItem("umbrella") || {}
         window.localStorage.removeItem("umbrella")
-        window.localStorage.setItem("umbrella", JSON.stringify({ userInfo: info }), 10000)
+        window.localStorage.setItem("umbrella", JSON.stringify({ userInfo: info }), 30000)
     }
     console.log({ ...info, remember })
     return  dispatch({
