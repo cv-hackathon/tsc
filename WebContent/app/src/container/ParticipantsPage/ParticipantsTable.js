@@ -93,7 +93,7 @@ const getColumns = (navigate, dispatch, navigators) => [
     renderCell: (params) => {
       return <Stack direction="column">{params.row.services.map((s, idx) => {
         return (
-          <div key={idx}>{s.serviceStatus}</div>
+          <div key={idx}>{partiStatus[s.serviceStatus] || s.serviceStatus}</div>
         )
       })}</Stack>
     },
