@@ -1,0 +1,4 @@
+.Mui-selected .MuiListItemIcon-root,
+.Mui-selected .MuiListItemText-root {
+    color: rgb(25, 118, 210) !important;
+}
