@@ -8,6 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springboard.tsc.VO.OrganizationServiceVO;
 import org.springboard.tsc.VO.OrganizationVO;
+import org.springboard.tsc.entity.OrgService;
 import org.springboard.tsc.entity.Organization;
 import org.springboard.tsc.service.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,8 +66,20 @@ public class OrganizationController {
                 cell3.setCellValue(org.getLocation());
                 Cell cell4 = row.createCell(4);
                 cell4.setCellValue(org.getEmail());
-                Cell cell5 = row.createCell(5);
-                cell5.setCellValue(org.getServices().toString());
+                int serviceOrderStart = 5;
+                for (OrganizationServiceVO orgService : org.getServices()){
+                    Cell serviceName = row.createCell(serviceOrderStart);
+                    serviceName.setCellValue(orgService.getName());
+                    Cell workerName = row.createCell(serviceOrderStart + 1);
+                    workerName.setCellValue(orgService.getWorkerName());
+                    Cell category = row.createCell(serviceOrderStart + 2);
+                    category.setCellValue(orgService.getServiceCategory());
+                    Cell email = row.createCell(serviceOrderStart + 3);
+                    email.setCellValue(orgService.getEmail());
+                    Cell zoom = row.createCell(serviceOrderStart + 4);
+                    zoom.setCellValue(orgService.getZoom());
+                    serviceOrderStart = serviceOrderStart + 5;
+                }
             }
         }
         String headerKey = "Content-Disposition";

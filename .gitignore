@@ -22,3 +22,5 @@ atlassian-ide-plugin.xml
 .settings
 .metadata
 /target/
+
+/node_modules
