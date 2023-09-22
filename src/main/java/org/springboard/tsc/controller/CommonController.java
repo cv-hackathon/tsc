@@ -1,8 +1,6 @@
 package org.springboard.tsc.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +15,7 @@ public class CommonController {
         return true;
     }
 
-    @PostMapping("/search")
+    @RequestMapping("/search")
     public List topSearch(@RequestParam String name) {
         //TODO
         return new ArrayList();
