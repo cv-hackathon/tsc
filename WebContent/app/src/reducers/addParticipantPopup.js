@@ -38,7 +38,7 @@ export default (state = default_state, action) => {
           defaultActiveStep: action.defaultActiveStep,
           info: {
             ...action.info,
-            needs: otherNeeds ? [...needs, 'Other goals'] : needs,
+            needs: otherNeeds.length ? [...needs, 'Other goals'] : needs,
             otherGoal: otherNeeds.join('')
           },
         }
