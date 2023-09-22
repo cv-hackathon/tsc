@@ -82,8 +82,8 @@ export default function ServiceDetailsPopup() {
       </DialogContent>
       <DialogActions>
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: 800 }}>
-          <Button onClick={onSave} sx={buttonSx} color='secondary' >Save</Button>
           <Button onClick={() => dispatch({type: 'service_details_hide'})} sx={buttonSx}>Close</Button>
+          <Button onClick={onSave} sx={buttonSx} color='secondary' >Save</Button>
         </Box>  
       </DialogActions>
     </Dialog>
