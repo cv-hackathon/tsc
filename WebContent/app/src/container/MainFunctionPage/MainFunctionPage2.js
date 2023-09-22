@@ -104,7 +104,7 @@ export default function MainFunctionPage() {
       <div id="meetingSDKElement"></div>
       <Stack spacing={2} direction="row" alignItems='center' width='100%' justifyContent='space-around' useFlexGap flexWrap="wrap">
       {
-        renderFuncCard()
+        renderFuncCard(dispatch)
       }  
       </Stack>
     </Box>
