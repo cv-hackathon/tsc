@@ -7,42 +7,21 @@ import FormDatePicker from '../../component/FormInputs/FormDatePicker'
 import FormRadioGroup from '../../component/FormInputs/FormRadioGroup'
 import FormMultipleSelect from '../../component/FormInputs/FormMultipleSelect'
 import FormSelect from '../../component/FormInputs/FormSelect'
+import {needsOpts} from '../../utils/constants'
 
 const genderOpts = [{ label: 'Female', value: 'Female' }, { label: 'Male', value: 'Male' }]
-const bankOpts = [{label: 'Yes', value: 'Y'}, {label: 'No', value: 'N'}]
 const tagsOpts = [{ label: 'MHD', value: 'MHD' }, { label: 'SUD', value: 'SUD' }]
-const exitOpts = [{ label: 'Yes', value: 'Y' }, { label: 'No', value: 'N' }]
-const exitReasonOpt = [
-  {
-    label: 'Incarcerated',
-    value: 'Incarcerated',
-  }, {
-    label: 'Move to Assertive Community Treatment Teams',
-    value: 'Move to Assertive Community Treatment Teams',
-  }, {
-    label: 'Passed away',
-    value: 'Passed away',
-  }, {
-    label: 'Not return',
-    value: 'Not return'
-  }, {
-    label: 'Move to different arrangements',
-    value: 'Move to different arrangements',
-  }, {
-    label: 'Rule Violations'
-  }
-]
 
 
 export default function ParticipantBaseInfo({ control, title, navigators, getValues }) {
-  const [showExitReason, updateExitReasonShow] = useState(getValues('exit'))
+  const [showOtherGoal, setShowOtherGoal] = useState(getValues('needs').includes('Other goals'))
 
   const navigatorOpts = useMemo(() => {
     return Object.values(navigators).map(({navigatorId, name}) => ({label: name, value: navigatorId}))
   }, [navigators])
 
-  const onExitChanged = value => {
-    updateExitReasonShow(value === 'Y')
+  const onNeedsChange = value => {
+    setShowOtherGoal(value.includes('Other goals'))
   }
 
   return (
@@ -65,26 +44,21 @@ export default function ParticipantBaseInfo({ control, title, navigators, getVal
           <FormSelect label="Navigator" fullWidth control={control} name="navigatorId" width={150} required options={navigatorOpts} />
         </Grid>
         <Grid item xs={12} sm={4} textAlign="left" mt={2}>
-          <FormMultipleSelect label="Tags" fullWidth control={control} name="tags" options={tagsOpts} />
+          <FormMultipleSelect label="Tags" width="100%" control={control} name="tags" options={tagsOpts} />
         </Grid>
         <Grid item xs={12} sm={4} mt={2}>
           <FormDatePicker label="Birthday" fullWidth control={control} name="birthday" />
         </Grid>
-        <Grid item xs={12} sm={4}>
-          <FormRadioGroup label="If Open Back Account"control={control} name="bankCardOpen" options={bankOpts} />
-        </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12}>
           <FormRadioGroup label="Gender" control={control} name="gender" options={genderOpts} />
         </Grid>
-        <Grid item xs={12} sm={4}>
-          <FormRadioGroup label="Exit" control={control} name="exit" options={exitOpts} onExitChanged={ onExitChanged } />
+        <Grid item xs={6} sm={5}>
+          <FormMultipleSelect label="Needs / Goal" width="100%" control={control} name="needs" options={needsOpts} onChange={onNeedsChange} />
+          {/* <FormInput label="Needs / Goal" control={control} name="needs" required fullWidth variant="standard" /> */}
         </Grid>
-        {showExitReason && <Grid item xs={12} sm={8} textAlign="left" display={'flex'} alignItems={'flex-end'}>
-          <FormSelect label="Exit Reason" control={control} name="exitReason" width={'100%'} options={exitReasonOpt} />
+        {showOtherGoal && <Grid item xs={6} sm={7} textAlign="left" display={'flex'} alignItems={'flex-end'}>
+          <FormInput control={control} name="otherGoal" fullWidth />
         </Grid>}
-        <Grid item xs={12}>
-          <FormInput label="Needs / Goal" control={control} name="needs" required fullWidth variant="standard" />
-        </Grid>
       </Grid>
     </Fragment>
   )

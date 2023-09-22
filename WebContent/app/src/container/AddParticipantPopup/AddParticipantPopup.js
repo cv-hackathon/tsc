@@ -68,10 +68,18 @@ export default function AddParticipantPopup() {
 
   const onSubmit = data => {
     const {services, ...rest} = data
+    let needs = typeof data.needs === 'string' ? data.needs.split(',') : data.needs
+
+    if (needs.includes('Other goals')) {
+      needs = [...needs, data.otherGoal].filter(n => n !== 'Other goals')
+    }
+
+
     const parsedData = {
       ...rest,
       tags: typeof data.tags === 'string' ? data.tags : data.tags.join(','),
       birthday: typeof data.birthday === 'string' ? data.birthday : data.birthday.format(dayFormat),
+      needs: needs.join(','),
     }
 
     const deletedServiceIds = info.services.reduce((acc, cur) => {

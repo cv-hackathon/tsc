@@ -19,21 +19,21 @@ const MenuProps = {
   },
 };
 
-export default function FormMultipleSelect({control, name, ...inputProps}) {
+export default function FormMultipleSelect({control, onChange: propsOnChange = () => {}, name, width, ...inputProps}) {
   return (
     <Controller
       name={name}
       control={control}
       render={({ field: { onChange, value } }) => (
-        <MultipleSelect onChange={onChange} value={value} {...inputProps} />
+        <MultipleSelect onChange={onChange} propsOnChange={propsOnChange} value={value} width={width} {...inputProps} />
       )}
     />
   )
 }
 
-function MultipleSelect({options, onChange, value = emptyArr, label, ...rest}) {
+function MultipleSelect({options, onChange, propsOnChange, value = emptyArr, label, width, ...rest}) {
   return (
-    <FormControl sx={{minWidth: 120 }} size="small">
+    <FormControl sx={{minWidth: 120, width }} size="small">
       <InputLabel id="demo-select-small-label-1" {...rest}>{label}</InputLabel>
       <Select
         labelId="demo-select-small-label-1"
@@ -46,6 +46,7 @@ function MultipleSelect({options, onChange, value = emptyArr, label, ...rest}) {
         MenuProps={MenuProps}
         onChange={e => {
           const val = e.target.value
+          propsOnChange(val)
           onChange(typeof val === 'string' ? val.split(',') : val)
         }}
       >
