@@ -18,7 +18,8 @@ const default_state = {
     services: [],
     tags: [],
     otherGoal: '',
-  }
+  },
+  defaultActiveStep: 0
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -34,6 +35,7 @@ export default (state = default_state, action) => {
           isShow: true,
           onAdd: action.onAdd,
           isEditingMode: action.isEditingMode,
+          defaultActiveStep: action.defaultActiveStep,
           info: {
             ...action.info,
             needs: otherNeeds ? [...needs, 'Other goals'] : needs,
@@ -48,6 +50,7 @@ export default (state = default_state, action) => {
         onAdd: action.onAdd,
         isEditingMode: action.isEditingMode,
         info: action.info ? action.info : state.info,
+        defaultActiveStep: action.defaultActiveStep
       }
     }
     case "add_participant_hide": {
