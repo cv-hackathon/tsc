@@ -21,7 +21,7 @@ public class SwaggerConfig {
                 .groupName("Normal")
                 .enable(true)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.citi.cv.umbrella.controller"))
+                .apis(RequestHandlerSelectors.basePackage("org.springborad.tsc.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .pathMapping("/");
@@ -29,7 +29,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Umbrella Swagger3 UI")
+                .title("TSC Swagger3 UI")
                 .description("Designed by CV")
                 .termsOfServiceUrl("")
                 .version("1.0")
