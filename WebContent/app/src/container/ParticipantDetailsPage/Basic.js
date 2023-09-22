@@ -38,7 +38,7 @@ function BasicInfo({ participantId, info }) {
         <Stack direction={'row'} spacing={2}>
           <Button variant="contained" size="small" color="primary" sx={{ height: '30px'}} onClick={() => {
             dispatch({ type: 'add_participant_show', isEditingMode: true, info, defaultActiveStep: 2 })
-          }}>Actions</Button>
+          }}>Edit</Button>
           <Button variant="contained" size="small" color="primary" sx={{ height: '30px' }} onClick={() => {
             dispatch({ type: 'add_participant_show', isEditingMode: true, info, defaultActiveStep: 1 })
           }}>Book Service</Button>
@@ -56,7 +56,7 @@ function BasicInfo({ participantId, info }) {
           <TextField label="Phone" variant="outlined" value={info.phone} InputProps={{ readOnly: true }} />
         </Grid>
         <Grid item xs={6} sm={2}>
-          <TextField label="Bank Account" variant="outlined" value={info.backCardOpen || 'N'} InputProps={{readOnly: true}}  />
+          <TextField label="Bank Account" variant="outlined" value={info.bankCardOpen} InputProps={{readOnly: true}}  />
         </Grid>
         <Grid item xs={6} sm={4}>
           <TextField label="Email" variant="outlined" fullWidth value={info.email} InputProps={{readOnly: true}}  />

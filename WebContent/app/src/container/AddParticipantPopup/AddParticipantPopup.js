@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import dayjs from 'dayjs'
 import {useForm} from "react-hook-form";
@@ -39,14 +39,14 @@ const buttonSx = {mt: 3, ml: 1}
 
 const popupState = state => ({...state.addParticipant, ...state.globalInfo})
 
-function getStepContent(step, control, title, navigators, organizations, getValues) {
+function getStepContent(step, control, title, navigators, organizations, getValues, isEditingMode) {
   switch (step) {
     case 0:
       return <ParticipantBaseInfo control={control} title={title} navigators={navigators} getValues={getValues} />;
     case 1:
-      return <ServicesInfo control={control} title={title} organizations={organizations} />;
+      return <ServicesInfo control={control} title={title} organizations={organizations} isEditingMode={isEditingMode} />;
     case 2:
-      return <FinalStep control={control} title={title} getValues={getValues} />;
+      return <FinalStep control={control} title={title} getValues={getValues} isEditingMode={isEditingMode} />;
     default:
       throw new Error('Unknown step');
   }
@@ -68,7 +68,7 @@ export default function AddParticipantPopup() {
 
   useEffect(() => {
     setActiveStep(defaultActiveStep || 0)
-  }, defaultActiveStep)
+  }, [defaultActiveStep])
 
   const onSubmit = data => {
     const {services, ...rest} = data
@@ -130,6 +130,20 @@ export default function AddParticipantPopup() {
 
   const isLastStep = activeStep === stepsArr.length - 1
 
+  const getFooterButtons = () => {
+    return <Button variant="contained" onClick={handleSubmit(onSubmit)} sx={buttonSx}>Apply</Button>
+  }
+
+  const getTitle = () => {
+    if (defaultActiveStep === 1) {
+      return 'Book Service'
+    } else if (defaultActiveStep === 2) {
+      return 'Edit Participant'
+    }
+
+    return 'Add Participant'
+  }
+
   return isShow && (
     <Dialog
       open={isShow}
@@ -139,21 +153,27 @@ export default function AddParticipantPopup() {
       aria-describedby="scroll-dialog-description"
     >
       <DialogTitle id="scroll-dialog-title" align="center">
-        {isEditingMode ? 'Edit Participant' : 'Add Participant'} 
+        {getTitle()}
       </DialogTitle>
       <DialogContent>
-        <StepperPanel activeStep={activeStep} steps={stepsArr} />
-        {getStepContent(activeStep, control, stepsArr[activeStep], navigators, organizations, getValues)}
+        {!isEditingMode && <StepperPanel activeStep={activeStep} steps={stepsArr} />} 
+        {getStepContent(activeStep, control, stepsArr[activeStep], navigators, organizations, getValues, isEditingMode)}
       </DialogContent>
       <DialogActions>
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: 800 }}>
           <Button onClick={() => {
               reset()
               dispatch({type: 'add_participant_hide'})
-            }} sx={buttonSx}>Cancel</Button>
-          {activeStep !== 0 && <Button onClick={handleBack} sx={buttonSx}>Back</Button>}
-          {!isLastStep && <Button variant="contained" onClick={handleNext} sx={buttonSx}>Next</Button>}
-          {isLastStep && <Button variant="contained" onClick={handleSubmit(onSubmit)} sx={buttonSx}>{ isEditingMode ? 'Update' : 'Add' }</Button>}
+          }} sx={buttonSx}>Cancel</Button>
+          {
+            isEditingMode ? getFooterButtons() : (
+              <Fragment>
+                {activeStep !== 0 && <Button onClick={handleBack} sx={buttonSx}>Back</Button>}
+                {!isLastStep && <Button variant="contained" onClick={handleNext} sx={buttonSx}>Next</Button>}
+                {isLastStep && <Button variant="contained" onClick={handleSubmit(onSubmit)} sx={buttonSx}>Add</Button>}
+              </Fragment>
+            )
+          }
         </Box>
       </DialogActions>
     </Dialog>
