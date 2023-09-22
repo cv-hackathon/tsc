@@ -44,6 +44,7 @@ function CustomTabPanel(props) {
             name="email"
             autoComplete="email"
             autoFocus
+            defaultValue={value ? 'lrhc@lrhc.com' : 'jeff@tsc.com'}
           />
           <TextField
             margin="normal"
@@ -54,6 +55,7 @@ function CustomTabPanel(props) {
             type="password"
             id="password"
             autoComplete="current-password"
+            defaultValue={'123'}
             error={!authorized}
             helperText="Please check your password again."
           />
