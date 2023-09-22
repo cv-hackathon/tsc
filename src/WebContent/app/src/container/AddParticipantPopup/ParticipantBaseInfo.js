@@ -71,7 +71,7 @@ export default function ParticipantBaseInfo({ control, title, navigators, getVal
           <FormDatePicker label="Birthday" fullWidth control={control} name="birthday" />
         </Grid>
         <Grid item xs={12} sm={4}>
-          <FormRadioGroup label="If Open Back Account"control={control} name="backCardOpen" options={bankOpts} />
+          <FormRadioGroup label="If Open Back Account"control={control} name="bankCardOpen" options={bankOpts} />
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormRadioGroup label="Gender" control={control} name="gender" options={genderOpts} />
