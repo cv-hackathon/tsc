@@ -949,6 +949,7 @@ public class ParticipantContorller {
 		os.setOrganizationId(1L);
 		os.setWorkerName("Lei");
 		os.setEmail("lei@lrh.com");
+		os.setPassword("123");
 		os.setZoom("lei@lrh.com");
 		os.setCategory("care");
 		os.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -960,6 +961,7 @@ public class ParticipantContorller {
 		os2.setOrganizationId(1L);
 		os2.setWorkerName("Alan");
 		os2.setEmail("alan@lrh.com");
+		os2.setPassword("123");
 		os2.setZoom("alan@lrh.com");
 		os2.setCategory("care");
 		os2.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -971,6 +973,7 @@ public class ParticipantContorller {
 		os3.setOrganizationId(1L);
 		os3.setWorkerName("George");
 		os3.setEmail("george@lrh.com");
+		os3.setPassword("123");
 		os3.setZoom("george@lrh.com");
 		os3.setCategory("care");
 		os3.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -982,6 +985,7 @@ public class ParticipantContorller {
 		os4.setOrganizationId(2L);
 		os4.setWorkerName("Jinjin");
 		os4.setEmail("jinjin@promise-act.com");
+		os4.setPassword("123");
 		os4.setZoom("jinjin@promise-act.com");
 		os4.setCategory("education");
 		os4.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -993,6 +997,7 @@ public class ParticipantContorller {
 		os5.setOrganizationId(2L);
 		os5.setWorkerName("Yu");
 		os5.setEmail("yu@promise-act.com");
+		os5.setPassword("123");
 		os5.setZoom("yu@promise-act.com");
 		os5.setCategory("education");
 		os5.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -1004,6 +1009,7 @@ public class ParticipantContorller {
 		os6.setOrganizationId(2L);
 		os6.setWorkerName("Walter");
 		os6.setEmail("walter@promise-act.com");
+		os6.setPassword("123");
 		os6.setZoom("walter@promise-act.com");
 		os6.setCategory("care");
 		os6.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -1015,6 +1021,7 @@ public class ParticipantContorller {
 		os7.setOrganizationId(3L);
 		os7.setWorkerName("Jinjin");
 		os7.setEmail("jinjin@del1-credit.com");
+		os7.setPassword("123");
 		os7.setZoom("jinjin@del1-credit.com");
 		os7.setCategory("education");
 		os7.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -1026,6 +1033,7 @@ public class ParticipantContorller {
 		os8.setOrganizationId(4L);
 		os8.setWorkerName("Andy");
 		os8.setEmail("andy@net-center.com");
+		os8.setPassword("123");
 		os8.setZoom("andy@net-center.com");
 		os8.setCategory("cabin");
 		os8.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -1037,6 +1045,7 @@ public class ParticipantContorller {
 		os9.setOrganizationId(4L);
 		os9.setWorkerName("Sheffer");
 		os9.setEmail("sheffer@net-center.com");
+		os9.setPassword("123");
 		os9.setZoom("sheffer@net-center.com");
 		os9.setCategory("cabin");
 		os9.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -1048,6 +1057,7 @@ public class ParticipantContorller {
 		os10.setOrganizationId(5L);
 		os10.setWorkerName("Emily");
 		os10.setEmail("emily@fhr.com");
+		os10.setPassword("123");
 		os10.setZoom("emily@fhr.com");
 		os10.setCategory("care");
 		os10.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -1059,6 +1069,7 @@ public class ParticipantContorller {
 		os11.setOrganizationId(6L);
 		os11.setWorkerName("George");
 		os11.setEmail("george@mhc.com");
+		os11.setPassword("123");
 		os11.setZoom("george@mhc.com");
 		os11.setCategory("care");
 		os11.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -1070,6 +1081,7 @@ public class ParticipantContorller {
 		os12.setOrganizationId(7L);
 		os12.setWorkerName("Lynne");
 		os12.setEmail("lynne@bv-spca.com");
+		os12.setPassword("123");
 		os12.setZoom("lynne@bv-spca.com");
 		os12.setCategory("cabin");
 		os12.setCreateTime(new Timestamp(System.currentTimeMillis()));
