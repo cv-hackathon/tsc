@@ -46,7 +46,7 @@ const getColumns = (navigate, dispatch, navigators) => [
   },
   {
     field: 'exitReason',
-    headerName: 'Reason',
+    headerName: 'Exit Reason',
     flexGrow: 1,
   },
   {
@@ -56,11 +56,6 @@ const getColumns = (navigate, dispatch, navigators) => [
     valueGetter: (params) => {
       return (navigators[params.row.navigatorId] || {}).name
     },
-  },
-  {
-    field: 'bankCardOpen',
-    headerName: 'Bank Account',
-    width: 150,
   },
   {
     field: 'services',
@@ -97,7 +92,7 @@ const getColumns = (navigate, dispatch, navigators) => [
   {
     field: 'caseWorker',
     headerName: 'Case Worker',
-    width: 150,
+    width: 100,
     renderCell: (params) => {
       return <Stack direction="column">{params.row.services.map((s, idx) => {
         return (
