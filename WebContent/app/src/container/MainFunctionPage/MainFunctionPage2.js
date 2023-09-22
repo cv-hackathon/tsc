@@ -15,8 +15,6 @@ import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
 import DomainAddOutlinedIcon from "@mui/icons-material/DomainAddOutlined";
 
-import exportFile from "../../utils/exportFile";
-
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
@@ -32,7 +30,7 @@ const getFunctionConfig = (dispatch) => ({
     title: 'Export Cases',
     desc: 'Export participants list for easy offline services checking',
     img: '/export_img.jpeg',
-    onClick: exportFile,
+    onClick: () => dispatch({type: 'export_show'}),
     icon: <ImportExportOutlinedIcon />
   },
   Participant: {
