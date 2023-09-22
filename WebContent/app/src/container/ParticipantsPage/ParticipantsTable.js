@@ -14,16 +14,12 @@ const categrayIcons = getServiceCategoryIcon({sx: {height: 15, width: 15, margin
 const partiStatus = {
   'In Progress': <Typography component="div" sx={{color: 'warning.main'}} fontSize={'small'}>In Progress</Typography>,
   'Completed': <Typography component="div" sx={{color: 'success.main'}} fontSize={'small'}>Completed</Typography>,
-  'Failed': <Typography component="div" sx={{color: 'error.main'}} fontSize={'small'}>Failed</Typography>,
+  'Exit': <Typography component="div" sx={{color: 'error.main'}} fontSize={'small'}>Exit</Typography>,
   Open: <Typography component="div" sx={{color: 'primary.main'}} fontSize={'small'}>Open</Typography>,
 }
 
 function getStatus(rowData) {
-  const {status, exit} = rowData
-
-  if (exit === 'Y') {
-    return partiStatus.Failed
-  }
+  const {status} = rowData
 
   return partiStatus[status] || status
 }
@@ -93,7 +89,7 @@ const getColumns = (navigate, dispatch, navigators) => [
     renderCell: (params) => {
       return <Stack direction="column">{params.row.services.map((s, idx) => {
         return (
-          <div key={idx}>{s.serviceStatus}</div>
+          <div key={idx}>{partiStatus[s.serviceStatus] || s.serviceStatus}</div>
         )
       })}</Stack>
     },

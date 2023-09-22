@@ -15,7 +15,6 @@ export default function doFetch(url, { method = 'GET', body, signal, headers, ty
 
   return fetch(url, {
     method,
-    credentials: 'same-origin',
     mode: 'cors',
     headers: finalHeader,
     signal,

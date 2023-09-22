@@ -24,8 +24,10 @@ export default function OrganizationsPage({}) {
   const [filterName] = useDebounce(name, 300);
 
   const data = useMemo(() => {
+    const lowerName  = filterName.toLowerCase()
+
     return rawData.filter(({name}) => {
-      return name.includes(filterName)
+      return name.toLowerCase().includes(lowerName)
     })
   }, [filterName, rawData])
 
