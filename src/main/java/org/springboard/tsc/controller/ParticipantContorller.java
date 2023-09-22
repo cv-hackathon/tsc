@@ -470,7 +470,7 @@ public class ParticipantContorller {
 		Service s = new Service();
 		s.setParticipantId(1L);
 		s.setNavigatorId(1L);
-		s.setOrgServiceId(1L);
+		s.setOrgServiceId(1001L);
 		s.setStatus("Open");
 		s.setDescription("TBD");
 		s.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -480,7 +480,7 @@ public class ParticipantContorller {
 		Service s2 = new Service();
 		s2.setParticipantId(2L);
 		s2.setNavigatorId(1L);
-		s2.setOrgServiceId(4L);
+		s2.setOrgServiceId(1004L);
 		s2.setStatus("In Progress");
 		s2.setDescription("TBD");
 		s2.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -490,7 +490,7 @@ public class ParticipantContorller {
 		Service s3 = new Service();
 		s3.setParticipantId(3L);
 		s3.setNavigatorId(1L);
-		s3.setOrgServiceId(7L);
+		s3.setOrgServiceId(1007L);
 		s3.setStatus("Completed");
 		s3.setDescription("TBD");
 		s3.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -500,7 +500,7 @@ public class ParticipantContorller {
 		Service s4 = new Service();
 		s4.setParticipantId(4L);
 		s4.setNavigatorId(1L);
-		s4.setOrgServiceId(8L);
+		s4.setOrgServiceId(1008L);
 		s4.setStatus("Open");
 		s4.setDescription("TBD");
 		s4.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -510,7 +510,7 @@ public class ParticipantContorller {
 		Service s5 = new Service();
 		s5.setParticipantId(5L);
 		s5.setNavigatorId(2L);
-		s5.setOrgServiceId(5L);
+		s5.setOrgServiceId(1005L);
 		s5.setStatus("In Progress");
 		s5.setDescription("TBD");
 		s5.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -520,7 +520,7 @@ public class ParticipantContorller {
 		Service s6 = new Service();
 		s6.setParticipantId(6L);
 		s6.setNavigatorId(2L);
-		s6.setOrgServiceId(9L);
+		s6.setOrgServiceId(1009L);
 		s6.setStatus("In Progress");
 		s6.setDescription("TBD");
 		s6.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -530,7 +530,7 @@ public class ParticipantContorller {
 		Service s7 = new Service();
 		s7.setParticipantId(7L);
 		s7.setNavigatorId(2L);
-		s7.setOrgServiceId(2L);
+		s7.setOrgServiceId(1002L);
 		s7.setStatus("In Progress");
 		s7.setDescription("TBD");
 		s7.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -540,7 +540,7 @@ public class ParticipantContorller {
 		Service s8 = new Service();
 		s8.setParticipantId(8L);
 		s8.setNavigatorId(2L);
-		s8.setOrgServiceId(10L);
+		s8.setOrgServiceId(1010L);
 		s8.setStatus("In Progress");
 		s8.setDescription("TBD");
 		s8.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -550,7 +550,7 @@ public class ParticipantContorller {
 		Service s9 = new Service();
 		s9.setParticipantId(9L);
 		s9.setNavigatorId(2L);
-		s9.setOrgServiceId(3L);
+		s9.setOrgServiceId(1003L);
 		s9.setStatus("In Progress");
 		s9.setDescription("TBD");
 		s9.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -560,7 +560,7 @@ public class ParticipantContorller {
 		Service s10 = new Service();
 		s10.setParticipantId(10L);
 		s10.setNavigatorId(2L);
-		s10.setOrgServiceId(11L);
+		s10.setOrgServiceId(1011L);
 		s10.setStatus("In Progress");
 		s10.setDescription("TBD");
 		s10.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -570,7 +570,7 @@ public class ParticipantContorller {
 		Service s11 = new Service();
 		s11.setParticipantId(11L);
 		s11.setNavigatorId(2L);
-		s11.setOrgServiceId(6L);
+		s11.setOrgServiceId(1006L);
 		s11.setStatus("In Progress");
 		s11.setDescription("TBD");
 		s11.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -580,7 +580,7 @@ public class ParticipantContorller {
 		Service s12 = new Service();
 		s12.setParticipantId(12L);
 		s12.setNavigatorId(2L);
-		s12.setOrgServiceId(12L);
+		s12.setOrgServiceId(1012L);
 		s12.setStatus("In Progress");
 		s12.setDescription("TBD");
 		s12.setCreateTime(new Timestamp(System.currentTimeMillis()));
@@ -588,7 +588,7 @@ public class ParticipantContorller {
 
 		//OrgService
 		OrgService os = new OrgService();
-		os.setOrgServiceId(1L);
+		os.setOrgServiceId(1001L);
 		os.setName("Dental Service");
 		os.setOrganizationId(1L);
 		os.setWorkerName("Lei");
@@ -600,7 +600,7 @@ public class ParticipantContorller {
 		organizationServiceRepository.save(os);
 
 		OrgService os2 = new OrgService();
-		os2.setOrgServiceId(2L);
+		os2.setOrgServiceId(1002L);
 		os2.setName("Medical Service");
 		os2.setOrganizationId(1L);
 		os2.setWorkerName("Alan");
@@ -612,7 +612,7 @@ public class ParticipantContorller {
 		organizationServiceRepository.save(os2);
 
 		OrgService os3 = new OrgService();
-		os3.setOrgServiceId(3L);
+		os3.setOrgServiceId(1003L);
 		os3.setName("Mental Health Service");
 		os3.setOrganizationId(1L);
 		os3.setWorkerName("George");
@@ -624,7 +624,7 @@ public class ParticipantContorller {
 		organizationServiceRepository.save(os3);
 
 		OrgService os4 = new OrgService();
-		os4.setOrgServiceId(4L);
+		os4.setOrgServiceId(1004L);
 		os4.setName("Financial Coaching");
 		os4.setOrganizationId(2L);
 		os4.setWorkerName("Jinjin");
@@ -636,7 +636,7 @@ public class ParticipantContorller {
 		organizationServiceRepository.save(os4);
 
 		OrgService os5 = new OrgService();
-		os5.setOrgServiceId(5L);
+		os5.setOrgServiceId(1005L);
 		os5.setName("Individual Employment Supports");
 		os5.setOrganizationId(2L);
 		os5.setWorkerName("Yu");
@@ -648,7 +648,7 @@ public class ParticipantContorller {
 		organizationServiceRepository.save(os5);
 
 		OrgService os6 = new OrgService();
-		os6.setOrgServiceId(6L);
+		os6.setOrgServiceId(1006L);
 		os6.setName("SUD Treatment Service");
 		os6.setOrganizationId(2L);
 		os6.setWorkerName("Walter");
@@ -660,7 +660,7 @@ public class ParticipantContorller {
 		organizationServiceRepository.save(os6);
 
 		OrgService os7 = new OrgService();
-		os7.setOrgServiceId(7L);
+		os7.setOrgServiceId(1007L);
 		os7.setName("Financial Service");
 		os7.setOrganizationId(3L);
 		os7.setWorkerName("Jinjin");
@@ -672,7 +672,7 @@ public class ParticipantContorller {
 		organizationServiceRepository.save(os7);
 
 		OrgService os8 = new OrgService();
-		os8.setOrgServiceId(8L);
+		os8.setOrgServiceId(1008L);
 		os8.setName("Food Stamps");
 		os8.setOrganizationId(4L);
 		os8.setWorkerName("Andy");
@@ -684,7 +684,7 @@ public class ParticipantContorller {
 		organizationServiceRepository.save(os8);
 
 		OrgService os9 = new OrgService();
-		os9.setOrgServiceId(9L);
+		os9.setOrgServiceId(1009L);
 		os9.setName("Medicaid Service");
 		os9.setOrganizationId(4L);
 		os9.setWorkerName("Sheffer");
@@ -696,7 +696,7 @@ public class ParticipantContorller {
 		organizationServiceRepository.save(os9);
 
 		OrgService os10 = new OrgService();
-		os10.setOrgServiceId(10L);
+		os10.setOrgServiceId(1010L);
 		os10.setName("Mental Health Service");
 		os10.setOrganizationId(5L);
 		os10.setWorkerName("Emily");
@@ -708,7 +708,7 @@ public class ParticipantContorller {
 		organizationServiceRepository.save(os10);
 
 		OrgService os11 = new OrgService();
-		os11.setOrgServiceId(11L);
+		os11.setOrgServiceId(1011L);
 		os11.setName("Mental Health Service");
 		os11.setOrganizationId(6L);
 		os11.setWorkerName("George");
@@ -720,7 +720,7 @@ public class ParticipantContorller {
 		organizationServiceRepository.save(os11);
 
 		OrgService os12 = new OrgService();
-		os12.setOrgServiceId(12L);
+		os12.setOrgServiceId(1012L);
 		os12.setName("Veterinary care");
 		os12.setOrganizationId(7L);
 		os12.setWorkerName("Lynne");
