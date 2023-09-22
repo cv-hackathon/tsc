@@ -189,6 +189,7 @@ public class ParticipantContorller {
 		Participant p2 = new Participant();
 		p2.setParticipantId(2L);
 		p2.setAchievement("Y");
+		p2.setAchieveReason("got job");
 		p2.setCabin("#103");
 		p2.setBirthday("1999-02-01");
 		p2.setLastname("Terry");
@@ -929,6 +930,7 @@ public class ParticipantContorller {
 					pVo.setCabin(info.getCabin());
 					pVo.setExit("Y".equalsIgnoreCase(info.getExit())? "Y":"N");
 					pVo.setAchievement("Y".equalsIgnoreCase(info.getAchievement())? "Y":"N");
+					pVo.setAchieveReason(info.getAchieveReason());
 					pVo.setExitReason(info.getExitReason());
 
 					List<ServiceVo> services = new ArrayList<>();

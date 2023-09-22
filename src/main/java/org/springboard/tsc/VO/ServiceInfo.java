@@ -58,5 +58,7 @@ public interface ServiceInfo {
 	
 	String getAchievement();
 	
+	String getAchieveReason();
+	
 	
 }

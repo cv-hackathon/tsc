@@ -28,6 +28,7 @@ public class ParticipantVo implements Serializable {
 	private String achievement;
 	private List<ServiceVo> services;
 	private Timestamp registerTime;
+	private String achieveReason;
 	
 	
 

@@ -38,18 +38,6 @@ export default function UploadPopup() {
     
     
     const url = isOrg ? '/organization/import' : '/participant/import'
-    // const xhr = new XMLHttpRequest()
-    // xhr.withCredentials = true
-
-    // xhr.addEventListener('readystatechange', function() {
-    //   if (this.readyState === 4) {
-    //     console.log(this)
-    //   }
-    // })
-
-    // xhr.open('POST', '/organization/import')
-    // xhr.setRequestHeader('Accept', 'application/json, text/plain, */*')
-    // xhr.send(data)
     
     fetch(url, {
       method: 'POST',
@@ -73,10 +61,11 @@ export default function UploadPopup() {
       }
       
       dispatch({type: 'upload_hide'})
+      dispatch({type: 'alert_show', props: {severity: 'success', msg: `Add ${importType} success!`}})
       setMyFile([])
       setImportType(defaultImportType)
     }).catch(e => {
-      alert('import error')
+      dispatch({type: 'alert_show', props: {severity: 'error', msg: `Add ${importType} failed!`}})
     })
 
     // doFetch(url, {method: 'POST', headers: {'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryRB12vJ72eQdPvIWH'}, body: data}).then(() => {
@@ -106,7 +95,7 @@ export default function UploadPopup() {
         </FormControl>
         <Stack {...getRootProps({className: 'dropzone'})} my="15px" width="500px" height="150px" justifyContent="center" alignItems="center" padding="20px" border="2px dashed #eee" borderRadius="2px" >
           <input {...getInputProps()} />
-          <p>Drag 'n' drop file here, or click to select file</p>
+          <p>Drag & drop file here, or click to select file</p>
         </Stack>
         {!!myFile.length && <Box>Import file: {myFile[0].path}</Box>}
       </DialogContent>
