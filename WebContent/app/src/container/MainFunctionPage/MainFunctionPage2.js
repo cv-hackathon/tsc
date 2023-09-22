@@ -31,14 +31,14 @@ const getFunctionConfig = (dispatch) => ({
     desc: 'Export participants list for easy offline services checking',
     img: '/export_img.jpeg',
     onClick: () => dispatch({type: 'export_show'}),
-    icon: <ImportExportOutlinedIcon />
+    icon: <ExitToAppOutlinedIcon />
   },
   Participant: {
     title: 'Add Participant',
     desc: 'Onboard participant and book services',
     img: '/homeless.png',
     onClick: () => dispatch({type: 'add_participant_show'}),
-    icon: <ExitToAppOutlinedIcon />
+    icon: <PersonAddOutlinedIcon />
   },
   Organization: {
     title: 'Add Organization',
