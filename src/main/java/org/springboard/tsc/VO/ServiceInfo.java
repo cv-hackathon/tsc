@@ -54,5 +54,9 @@ public interface ServiceInfo {
 	
 	String getExitReason();
 	
+	String getCabin();
+	
+	String getAchievement();
+	
 	
 }

@@ -24,6 +24,8 @@ public class ParticipantVo implements Serializable {
 	private String bankCardOpen;
 	private String exit;
 	private String exitReason;
+	private String cabin;
+	private String achievement;
 	private List<ServiceVo> services;
 	private Timestamp registerTime;
 	
